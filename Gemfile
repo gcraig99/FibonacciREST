@@ -18,7 +18,10 @@ group :service do
   gem 'test-unit', '>= 3.0.8'
   gem 'rack', '>= 1.6.4'
   gem 'rack-test', '>= 0.6.3'
-  gem 'json', '>= 1.8.3'
+  gem 'json'
+  if RUBY_PLATFORM =~ /(win32|w32)/
+    gem 'win32-service', '0.8.7'
+  end
 end
 
 
