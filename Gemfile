@@ -22,6 +22,10 @@ group :service do
   if RUBY_PLATFORM =~ /(win32|w32)/
     gem 'win32-service', '0.8.7'
   end
+  if RUBY_PLATFORM =~ /(linux)/
+    gem 'daemons'
+  end
+
 end
 
 

@@ -5,11 +5,15 @@ require 'sinatra/base'
 class FibonacciService < Sinatra::Base
   require 'json'
   require 'rack/logger'
+  require 'rack/commonlogger'
 
 
   # Set up the environment
   configure :production, :development do
     enable :logging, :dump_errors
+    
+    logger = Logger.new(File.join(File.dirname(__FILE__), 'log/FibonacciService.log'), 'daily')
+    use Rack::CommonLogger, logger
   end
 
   # Route handler for requests where the requested number of sequence items is in the query string.
@@ -65,5 +69,4 @@ class FibonacciService < Sinatra::Base
   end
   
  
-
 end
