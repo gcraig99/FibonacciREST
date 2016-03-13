@@ -1,7 +1,10 @@
 # FibonacciREST
 A RESTFUL service that returns the request number of numbers from the Fibonacci Sequence
 
-##Requirements
+## Known Limitations
+* When running as a service on Windows or a Daemon on Linux if there's a conflict on port 80 there's no error thrown. Port can be changed from default of 80 in FibonacciWin32Service.rb or FibonacciLinuxService.rb
+
+## Installation Requirements
 * Ruby version > 2.0
 * Ruby Gems - https://rubygems.org/pages/download
 * Bundler Gem version > 1.5.0
@@ -33,3 +36,10 @@ A RESTFUL service that returns the request number of numbers from the Fibonacci 
 ## Testing the Service
 * Open your browser or use a REST client to connect to http://localhost:*__ListenPort__*/5
 * You should see [0,1,1,2,3] returned
+ 
+
+## TODOs
+* Improve logging in installation scripts
+* Add additional error handling in installation scripts
+* Come up with a way to detect port conflicts
+* Parameterize installation scripts to accept port as part of install command line
