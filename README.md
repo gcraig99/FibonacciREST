@@ -20,11 +20,10 @@ Fibonacci REST Service
 	
 	
 ## Running the Fibonacci REST Service
-   Windows or Linux Interactively  
-	* From a command or terminal window in the directory where you cloned/unpacked the source to: rackup -p _ListenPort_
-		
-    Windows - as a Service _Listens on port 80 by default. Replace port 80 with your preferred port in FibonacciWin32Service.rb_
-	  * From a command window in the directory where you cloned/unpacked the source to: "ruby FibonacciWindowsSeriveInstaller.rb"
-	
-  Linux, as a Daemon
-	  TODO
+* Windows or Linux Interactively  
+	* From a command or terminal window in the directory where you cloned/unpacked the source to: rackup -p *__ListenPort__*
+* Windows as a Service  
+	_NOTE Listens on port 80 by default. Replace port 80 with your preferred port in FibonacciWin32Service.rb_
+	* From a command window in the directory where you cloned/unpacked the source to: ruby FibonacciWindowsSeriveInstaller.rb
+* Linux, as a Daemon
+	* TODO Instructions
