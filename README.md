@@ -1,13 +1,15 @@
 # FibonacciREST
-Fibonacci REST Service
+A RESTFUL service that returns the request number of numbers from the Fibonacci Sequence
 
 ##Requirements
 * Ruby version > 2.0
 * Ruby Gems - https://rubygems.org/pages/download
 * Bundler Gem version > 1.5.0
 	* To install - gem install bundler
-* _Windows note_ - Requires Ruby DevKit before installing Gems- Follow instructions at http://github.com/oneclick/rubyinstaller/wiki/Development-Kit and make sure 
-						   to match the architecture of DevKit to the architecture of the installed Ruby (i.e. both 32bit or both 64bit)
+	
+ _Requires Ruby DevKit before installing Gems in step 2_ 
+* Windows - Follow instructions at http://github.com/oneclick/rubyinstaller/wiki/Development-Kit and make sure to match the architecture of DevKit to the architecture of the installed Ruby (i.e. both 32bit or both 64bit)
+* Linux - Install ruby-dev package
 
 
 ## Installation Instructions
