@@ -5,8 +5,8 @@ A RESTFUL service that returns the request number of numbers from the Fibonacci 
 * When running as a service on Windows or a Daemon on Linux if there's a conflict on port 80 there's no error thrown. Port can be changed from default of 80 in FibonacciWin32Service.rb or FibonacciLinuxService.rb
 
 ## Installation Requirements
-* Ruby version > 2.0
-* Ruby Gems - https://rubygems.org/pages/download
+* Ruby version >= 1.9.3
+* RubyGems - https://rubygems.org/pages/download
 * Bundler Gem version > 1.5.0
 	* To install - gem install bundler
 	
