@@ -11,7 +11,7 @@ class FibonacciService < Sinatra::Base
   # Set up the environment
   configure :production, :development do
     enable :logging, :dump_errors
-    
+    Dir.mkdir 'log' unless File.exists? 'log'
     logger = Logger.new(File.join(File.dirname(__FILE__), 'log/FibonacciService.log'), 'daily')
     use Rack::CommonLogger, logger
   end
