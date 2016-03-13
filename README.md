@@ -12,7 +12,7 @@ A RESTFUL service that returns the request number of numbers from the Fibonacci 
 * Linux - Install ruby-dev package
 
 
-## Installation Instructions
+## Preperation Instructions
 1. Download the source 
 	* git clone https://github.com/gcraig99/FibonacciREST.git <TargetDir> 
 	* OR Download and unpack the zip file https://github.com/gcraig99/FibonacciREST/archive/master.zip
@@ -21,11 +21,15 @@ A RESTFUL service that returns the request number of numbers from the Fibonacci 
 	2. Verify there were no errors installing required Gems with bundler
 	
 	
-## Running the Fibonacci REST Service
+## Installation Instructions
 * Windows or Linux Interactively  
 	* From a command or terminal window in the directory where you cloned/unpacked the source to: rackup -p *__ListenPort__*
 * Windows as a Service  
 	_NOTE Listens on port 80 by default. Replace port 80 with your preferred port in FibonacciWin32Service.rb_
-	* From a command window in the directory where you cloned/unpacked the source to: ruby FibonacciWindowsSeriveInstaller.rb
+	* From a command window in the directory where you cloned/unpacked the source to: ruby WindowsServiceInstaller.rb
 * Linux, as a Daemon
-	* TODO Instructions
+	* From a terminal in the directory where you cloned/unpacked the source to: ruby LinuxDaemonInstaller.rb install
+	
+## Testing the Service
+* Open your browser or use a REST client to connect to http://localhost:*__ListenPort__*/5
+* You should see [0,1,1,2,3] returned
