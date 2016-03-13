@@ -6,14 +6,26 @@ include Win32
 SERVICE_NAME = 'FibonacciRESTService'
 DISPLAY_SERVICE_NAME = 'Fibonacci REST Service'
 RUBY = File.join(RbConfig::CONFIG['bindir'], RbConfig::CONFIG['ruby_install_name']).sub(/.*\s.*/m, '"\&"')
-#entry point to check arguments in case we're being asked to uninstall the service
+
+#entry point to check arguments to see if we're installing or uninstalling. If no args passed show usage 
 def main
-	install_service unless ARGV[0] == 'remove_service'
-	remove_service if ARGV[0] == 'remove_service'
+	usage unless ARGV[0] 
+        if ARGV[0] == 'install'
+		install
+	end 
+	if ARGV[0] == 'remove'
+		remove
+	end 
+end
+
+def usage
+	puts 'Fibonacci REST Linux Service Installer Usage'
+	puts "'ruby WindowsServiceInstaller.rb install' - installs the Fibonacci REST Service"
+	puts "'ruby WindowsServiceInstaller.rb remove' - removes the Fibonacci Rest Service"
 end
 
 # Create the Windows Service
-def install_service
+def install
 	if !Service.exists? SERVICE_NAME
 	begin 
 		Service.create({
@@ -46,11 +58,19 @@ def install_service
 end
 
 # uninstall the service
-def remove_service
+def remove
 	puts "Service #{SERVICE_NAME} doesn't exist" unless Service.exists? SERVICE_NAME
 	return unless Service.exists? SERVICE_NAME
 	puts "Removing Service #{SERVICE_NAME}" unless !Service.exists? SERVICE_NAME
 	begin 
+		Service.stop SERVICE_NAME
+		$i = 0
+		#wait for the service to stop before deleting it
+		while $i < 5 do
+			sleep 10
+			break if Service.status(SERVICE_NAME).current_state == "stopped"
+           i+=1
+		end
 		Service.delete SERVICE_NAME unless !Service.exists? SERVICE_NAME
 		rescue StandardError => err
 		puts "Service #{SERVICE_NAME} could not be removed, error => #{err.message}"
@@ -64,4 +84,5 @@ def remove_service
 	
 end
 
+#entry
 main

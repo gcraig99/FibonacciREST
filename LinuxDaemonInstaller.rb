@@ -1,5 +1,6 @@
 require 'fileutils'
 
+#entry point to check arguments and determine whether to install or uninstall. Show usage if no args passed
 def main
 	usage unless ARGV[0] 
         if ARGV[0] == 'install'
@@ -11,11 +12,12 @@ def main
 end
 
 def usage
-	puts 'Fibonacci REST Linux Service Installer Usage'
-	puts "'ruby LinuxServiceInstall.rb install' - installs the Fibonacci REST Service"
-	puts "'ruby LinuxServiceInstall.rb remove' - removes the Fibonacci Rest Service"
+	puts 'Fibonacci REST Linux Daemon Installer Usage'
+	puts "'ruby LinuxDaemonInstaller.rb install' - installs the Fibonacci REST Daemon"
+	puts "'ruby LinuxDaemonInstaller.rb remove' - removes the Fibonacci Rest Daemon"
 end
 
+#install the daemon
 def install
 
 begin
@@ -38,15 +40,16 @@ FileUtils.chmod_R 0660, '/opt/FibonacciService'
 #Copy the init script to /etc/init.d
 FileUtils.cp 'FibonacciServiceLinux_init', '/etc/init.d/FibonacciService'
 FileUtils.chmod 0554, '/etc/init.d/FibonacciService'
-#register the service for default runlevels
+#register the daemon for default runlevels
 puts `update-rc.d FibonacciService defaults`
 
-#start the service
+#start the daemon
 puts `/etc/init.d/FibonacciService start`
 puts `/etc/init.d/FibonacciService status`
 exit!
 end
 
+#stop and uninstall the daemon
 def remove
 puts `/etc/init.d/FibonacciService stop`
 puts `update-rc.d -f FibonacciService remove`
