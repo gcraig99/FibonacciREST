@@ -2,4 +2,4 @@
 # Fibonacci REST Service Control
 # Written by Gordon Craig - March, 2016
 cd /opt/FibonacciService
-ruby /opt/FibonacciService/FibonacciLinuxServiceControl.rb $1
+ruby /opt/FibonacciService/FibonacciLinuxServiceControl.rb "$@"
