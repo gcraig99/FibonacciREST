@@ -8,6 +8,7 @@ SERVICE_NAME = 'FibonacciRESTService'
 DISPLAY_SERVICE_NAME = 'Fibonacci REST Service'
 RUBY = File.join(RbConfig::CONFIG['bindir'], RbConfig::CONFIG['ruby_install_name'])#.gsub('/', '\\')
 INSTALL_DIR = 'C:\Program Files\FibonacciService'
+LISTEN_PORT = ARGV[1] || 80
 
 #entry point to check arguments to see if we're installing or uninstalling. If no args passed show usage 
 def main
@@ -22,7 +23,7 @@ end
 
 def usage
 	puts 'Fibonacci REST Linux Service Installer Usage'
-	puts "'ruby WindowsServiceInstaller.rb install' - installs the Fibonacci REST Service"
+	puts "'ruby WindowsServiceInstaller.rb install [listen port]' - installs the Fibonacci REST Service. Port defaults to 80 if not supplied"
 	puts "'ruby WindowsServiceInstaller.rb remove' - removes the Fibonacci Rest Service"
 end
 
@@ -47,7 +48,7 @@ def install
 		  :description        => 'RESTFUL service providing items from the Fibonacci sequence',
 		  :start_type         => Service::AUTO_START,
 		  :error_control      => Service::ERROR_NORMAL,
-		  :binary_path_name   => "#{RUBY}.exe -C\"#{INSTALL_DIR}\" FibonacciWin32Service.rb",
+		  :binary_path_name   => "#{RUBY}.exe -C\"#{INSTALL_DIR}\" FibonacciWin32Service.rb #{LISTEN_PORT}",
 		  :load_order_group   => 'Network',
 		  :dependencies       => [''],
 		  :display_name       => DISPLAY_SERVICE_NAME
