@@ -2,7 +2,7 @@
 A RESTFUL service that returns the request number of numbers from the Fibonacci Sequence
 
 ## Known Limitations
-* When running as a service on Windows or a Daemon on Linux if there's a conflict on port 80 there's no error thrown. Port can be changed from default of 80 in FibonacciWin32Service.rb or FibonacciLinuxService.rb
+* When running as a service on Windows or a Daemon on Linux if there's a conflict on port 80 there's no error thrown by the WEBRick server. Port can be changed from default of 80 by passing in the port to listen on to the installer script
 
 ## Installation Requirements
 * Ruby version >= 1.9.3
@@ -41,5 +41,5 @@ A RESTFUL service that returns the request number of numbers from the Fibonacci 
 ## TODOs
 * Improve logging in installation scripts
 * Add additional error handling in installation scripts
-* Come up with a way to detect port conflicts
-* Parameterize installation scripts to accept port as part of install command line
+* Come up with a way to detect port conflicts or switch to a diffent server than WEBrick
+
