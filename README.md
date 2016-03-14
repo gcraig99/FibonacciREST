@@ -3,6 +3,8 @@ A RESTFUL service that returns the request number of numbers from the Fibonacci 
 
 ## Known Limitations
 * When running as a service on Windows or a Daemon on Linux if there's a conflict on port 80 there's no error thrown by the WEBRick server. Port can be changed from default of 80 by passing in the port to listen on to the installer script
+* Linux Installation only tested on Ubuntu derivatives - should work on any system that uses init scripts. Installation will not work on systemd systems out of the box.
+* Linux systems running SELinux may require additional configuration to allow the server to accept connections
 
 ## Installation Requirements
 * Ruby version >= 1.9.3
