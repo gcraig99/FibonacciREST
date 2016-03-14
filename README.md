@@ -26,12 +26,15 @@ A RESTFUL service that returns the request number of numbers from the Fibonacci 
 	
 ## Installation Instructions
 * Windows or Linux Interactively  
-	* From a command or terminal window in the directory where you cloned/unpacked the source to: rackup -p *__ListenPort__*
+	* From a command or terminal window in the directory where you cloned/unpacked the source to: 
+	* rackup -p *__ListenPort__*
 * Windows as a Service  
 	_NOTE Listens on port 80 by default. Replace port 80 with your preferred port in FibonacciWin32Service.rb_
-	* From a command window in the directory where you cloned/unpacked the source to: ruby WindowsServiceInstaller.rb
+	* From a command window in the directory where you cloned/unpacked the source to: 
+	* ruby WindowsServiceInstaller.rb install [Listen Port]
 * Linux, as a Daemon
-	* From a terminal in the directory where you cloned/unpacked the source to: ruby LinuxDaemonInstaller.rb install
+	* From a terminal in the directory where you cloned/unpacked the source to: 
+	* ruby LinuxDaemonInstaller.rb install [Listen Port]
 	
 ## Testing the Service
 * Open your browser or use a REST client to connect to http://localhost:*__ListenPort__*/5
