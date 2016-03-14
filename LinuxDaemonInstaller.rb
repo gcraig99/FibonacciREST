@@ -40,8 +40,8 @@ def install
 
   #Copy the init script to /etc/init.d
   init_script = IO.read('FibonacciServiceLinux_init')
-  init_script.gsub! '"$@"', LISTEN_PORT
-  IO.write('/etc/init.d/FibonacciService',init_script )
+  init_script.gsub! '"$@"', "$1 -- #{LISTEN_PORT}"
+  IO.write('/etc/init.d/FibonacciService', init_script )
 
   FileUtils.chmod 0554, '/etc/init.d/FibonacciService'
   #register the daemon for default runlevels
