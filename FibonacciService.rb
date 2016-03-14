@@ -14,6 +14,7 @@ class FibonacciService < Sinatra::Base
     Dir.mkdir 'log' unless File.exists? 'log'
     logger = Logger.new(File.join(File.dirname(__FILE__), 'log/FibonacciService.log'), 'daily')
     use Rack::CommonLogger, logger
+    logger.info("Service Started")
   end
 
   # Route handler for requests where the requested number of sequence items is in the query string.
@@ -68,5 +69,5 @@ class FibonacciService < Sinatra::Base
     [404, 'Maybe you are looking for /FibonacciSequence']
   end
   
- 
+
 end
