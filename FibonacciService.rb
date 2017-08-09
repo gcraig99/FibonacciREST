@@ -5,7 +5,7 @@ require 'sinatra/base'
 class FibonacciService < Sinatra::Base
   require 'json'
   require 'rack/logger'
-  require 'rack/commonlogger'
+  require 'rack/common_logger'
 
 
   # Set up the environment
